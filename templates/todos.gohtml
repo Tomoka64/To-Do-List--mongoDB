@@ -1,43 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Todo</title>
-    <style>
-        html, body, p {
-            padding: 0;
-            border: 0;
-            margin: 0;
-        }
-        body {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: center;
-            align-items: center;
-            background-image: url("http://www.ideasphere.com/wp-content/uploads/2016/08/Savin-NY-Website-Background-Web-1.jpg");
-        }
-        h1 {
-          color: lightblue;
-          font-size: 50px;
-          font-stretch: condensed;
-          text-align: center;
-        }
-        p {
-            margin-left: 4rem;
-            font-size: 2rem;
-            color: black;
-          }
-        .link {
-            font-size: 1rem;
-        }
-    </style>
-</head>
-<body>
+{{template "header"}}
 <h1>My To-Do List</h1>
 {{range .}}
-<p><a href="/todos/show?isbn={{.Isbn}}">{{.Isbn}}</a> - {{.Title}} - {{.Due}} <a href="/todos/update?isbn={{.Isbn}}">update</a>  - <a href="/todos/delete/process?isbn={{.Isbn}}">delete</a> </p>
+<p>・<a href="/todos/show?isbn={{.Isbn}}">{{.Isbn}}</a> - {{.Title}} - DUE: {{.Due}} <a href="/todos/update?isbn={{.Isbn}}">update</a>  - <a href="/todos/delete/process?isbn={{.Isbn}}">delete</a> </p>
 {{end}}
 
 <p class="link"><a href="/todos/create">Insert A todo</a></p>
-</body>
-</html>
+{{template "footer"}}
